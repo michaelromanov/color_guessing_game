@@ -10,10 +10,11 @@ var colors = [
 ];
 
 var squares = document.querySelectorAll(".square");
-var pickedColor = pickColor;
+var pickedColor = pickColor();
 var colorDisplay = document.querySelector("#colorDisplay");
-colorDisplay.textContent = pickedColor();
 var messageDisplay = document.querySelector("#message");
+
+colorDisplay.textContent = pickedColor;
 
 for(var i = 0; i < squares.length; i++){
   //add initial colors to squares
@@ -33,7 +34,6 @@ for(var i = 0; i < squares.length; i++){
   });
 }
 
-
 function changeColors(color){
   //loop through all squares
   //change each color to match given color
@@ -42,6 +42,10 @@ function changeColors(color){
   }
 }
 
+function pickColor(){
+  var random = Math.floor(Math.random() * colors.length);
+  return colors[random];
+}
 
 
 
